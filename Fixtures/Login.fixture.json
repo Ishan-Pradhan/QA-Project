@@ -1,0 +1,33 @@
+{
+  "validUser": {
+    "email": "fomaxi5083@bsidesmn.com",
+    "password": "testpassword123"
+  },
+
+  "invalidUser": {
+    "invalidCredentials": {
+      "email": "invalidemail@gmail.com",
+      "password": "testpassword123"
+    },
+    "emptyField": {
+      "email": "",
+      "password": ""
+    },
+    "emptyEmail": {
+      "email": "",
+      "password": "testpassword123"
+    },
+    "emptyPassword": {
+      "email": "fomaxi5083@bsidesmn.com",
+      "password": ""
+    },
+    "emailLeadingSpace": {
+      "email": " fomaxi5083@bsidesmn.com",
+      "password": "testpassword123"
+    },
+    "passwordLeadingSpace": {
+      "email": "fomaxi5083@bsidesmn.com",
+      "password": " testpassword123"
+    }
+  }
+}

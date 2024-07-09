@@ -1,0 +1,27 @@
+{
+  "name": "qa-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "login": "npx playwright test /tests/login/login.spec.js",
+    "dashboard": "npx playwright test /tests/dashboard/dashboard.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ishan-Pradhan/QA-Project.git"
+  },
+  "author": "Ishan Pradhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ishan-Pradhan/QA-Project/issues"
+  },
+  "homepage": "https://github.com/Ishan-Pradhan/QA-Project#readme",
+  "dependencies": {
+    "playwright": "^1.45.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.1",
+    "@types/node": "^20.14.10"
+  }
+}
