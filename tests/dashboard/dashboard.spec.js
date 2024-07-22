@@ -29,10 +29,17 @@ test.describe("Add Delete and Edit blog", () => {
     await dashboard.verifyEdit();
   });
 
+  test("search blog", async ({ page }) => {
+    const dashboard = new DashboardPage(page);
+    await dashboard.searchBlog();
+  });
+
   test("delete blog", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.deleteBlog();
+    await page.waitForTimeout(2000);
     await dashboard.verifyDelete();
+    await page.waitForTimeout(3000);
   });
 
   test("logout", async ({ page }) => {

@@ -1,5 +1,6 @@
 const { expect } = require("@playwright/test");
 const dashboardTestData = require("../Fixtures/Dashboard.fixture.json");
+const exp = require("constants");
 
 exports.DashboardPage = class DashboardPage {
   constructor(page) {
@@ -19,6 +20,11 @@ exports.DashboardPage = class DashboardPage {
     this.deletePopup = '//*[@id="main-content"]/div[2]/form/button';
     this.verifyDeleteBlog = `a:has-text("${dashboardTestData.editTitle}")`;
     this.logout = '//*[@id="last-nav-link"]';
+    this.searchInput = '//*[@id="search-input"]';
+    this.newestButton = '//*[@id="sorting-option-tabs"]/ul/li[2]/a';
+    this.verifySearch =
+      '//div[contains(@class, "crayons-story__indention")]//h3[@class="crayons-story__title"]/a';
+
     this.logoutConfirmation =
       '//*[@id="page-content-inner"]/div[2]/form/button';
     this.loginButton = '//*[@id="authentication-top-nav-actions"]/span/a';
@@ -53,6 +59,19 @@ exports.DashboardPage = class DashboardPage {
 
   async verifyEdit() {
     await expect(this.page.locator(this.validatePost)).toHaveText(
+      dashboardTestData.editTitle
+    );
+  }
+
+  async searchBlog() {
+    await this.page
+      .locator(this.searchInput)
+      .fill(dashboardTestData.searchTitle);
+    await this.page.keyboard.press("Enter");
+    await this.page.waitForTimeout(2000);
+    await this.page.locator(this.newestButton).click();
+    await this.page.waitForTimeout(2000);
+    await expect(this.page.locator(this.verifySearch)).toHaveText(
       dashboardTestData.editTitle
     );
   }
