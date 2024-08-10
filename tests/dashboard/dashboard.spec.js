@@ -17,19 +17,19 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Add Delete and Edit blog", () => {
   test.describe.configure({ mode: "serial" });
-  test("create Blog", async ({ page }) => {
+  test("create post", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.postBlog();
     await dashboard.validatePosting();
   });
 
-  test("edit blog", async ({ page }) => {
+  test("edit post", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.editPost();
     await dashboard.verifyEdit();
   });
 
-  test("search blog", async ({ page }) => {
+  test("search post", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.searchBlog();
   });

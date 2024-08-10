@@ -32,7 +32,6 @@ exports.DashboardPage = class DashboardPage {
 
   async postBlog() {
     await this.page.locator(this.createPost).click();
-
     await this.page.waitForTimeout(5000);
     await this.page.locator(this.postTitle).fill(dashboardTestData.postTitle);
     await this.page
@@ -92,6 +91,7 @@ exports.DashboardPage = class DashboardPage {
     await this.page.locator(this.profileavatar).click();
     await this.page.locator(this.logout).click();
     await this.page.locator(this.logoutConfirmation).click();
+    await this.page.waitForTimeout(2000);
   }
 
   async logoutVerify() {
