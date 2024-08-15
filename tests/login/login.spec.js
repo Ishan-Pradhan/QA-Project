@@ -14,6 +14,15 @@ test.describe("Login tests", () => {
       await login.login(testData.validUser.email, testData.validUser.password);
       await login.verifyValidLogin();
     });
+    test("email with leading space", async ({ page }) => {
+      const login = new LoginPage(page);
+      await login.login(
+        testData.invalidUser.emailLeadingSpace.email,
+        testData.invalidUser.emailLeadingSpace.password
+      );
+      await page.waitForTimeout(3000);
+      await login.verifyValidLogin();
+    });
   });
 
   test.describe("invalid login tests", () => {
@@ -53,16 +62,6 @@ test.describe("Login tests", () => {
         testData.invalidUser.emptyPassword.password
       );
       await login.invalidLogin();
-    });
-
-    test("email with leading space", async ({ page }) => {
-      const login = new LoginPage(page);
-      await login.login(
-        testData.invalidUser.emailLeadingSpace.email,
-        testData.invalidUser.emailLeadingSpace.password
-      );
-      await page.waitForTimeout(3000);
-      await login.verifyValidLogin();
     });
 
     test("password with leading space", async ({ page }) => {

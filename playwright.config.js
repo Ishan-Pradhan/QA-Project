@@ -34,15 +34,10 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: "chromium",
-    //   use: { ...devices["Desktop Chrome"] },
-    // },
-
     {
-      name: "firefox",
+      name: "chromium",
       use: {
-        ...devices["Desktop Firefox"],
+        ...devices["Desktop Chrome"],
         deviceScaleFactor: undefined,
         viewport: null,
         launchOptions: {
@@ -50,6 +45,18 @@ module.exports = defineConfig({
         },
       },
     },
+
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //     deviceScaleFactor: undefined,
+    //     viewport: null,
+    //     launchOptions: {
+    //       args: ["-start-maximized"],
+    //     },
+    //   },
+    // },
 
     // {
     //   name: 'webkit',
